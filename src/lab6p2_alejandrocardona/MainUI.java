@@ -1,20 +1,23 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package lab6p2_alejandrocardona;
 
-/**
- *
- * @author jets
- */
+import javax.swing.DefaultComboBoxModel;
+import java.util.ArrayList;
+
 public class MainUI extends javax.swing.JFrame {
+    static ArrayList<Consola> Consolas = new ArrayList();
 
     /**
      * Creates new form MainUI
      */
     public MainUI() {
         initComponents();
+        String [] size = {"Pequeña", "Mediana", "Grande"};
+//        DefaultComboBoxModel cb = (DefaultComboBoxModel) cbPortatil.getModel();
+        cbPortatil.removeAllItems();
+        for (String string : size) {
+            cbPortatil.addItem(string);
+        }
     }
 
     /**
@@ -26,21 +29,217 @@ public class MainUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        cbPortatil = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        LabelIDPort = new javax.swing.JTextField();
+        LabelFabPort = new javax.swing.JTextField();
+        LabelPrecioPort = new javax.swing.JTextField();
+        LabelBtrPort = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        LabelModeloPort = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        LabelYrsPort = new javax.swing.JTextField();
+        CheckBoxEstuchePort = new javax.swing.JCheckBox();
+        BtnCrearPort = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        cbPortatil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel1.setText("Identificacion: ");
+
+        jLabel2.setText("Años de Uso");
+
+        jLabel3.setText("Precio");
+
+        jLabel4.setText("Fabricante");
+
+        LabelPrecioPort.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LabelPrecioPortActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Tamaño de Pantalla");
+
+        jLabel6.setText("Modelo");
+
+        jLabel7.setText("Duracion de Bateria");
+
+        CheckBoxEstuchePort.setText("Estuche");
+        CheckBoxEstuchePort.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CheckBoxEstuchePortActionPerformed(evt);
+            }
+        });
+
+        BtnCrearPort.setText("Crear");
+        BtnCrearPort.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnCrearPortMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(66, 66, 66)
+                                .addComponent(LabelIDPort, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(89, 89, 89)
+                                .addComponent(LabelFabPort, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addGap(111, 111, 111)
+                                        .addComponent(LabelPrecioPort, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(LabelYrsPort, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addGap(103, 103, 103)
+                                        .addComponent(LabelModeloPort)))
+                                .addGap(54, 54, 54)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel5)
+                                            .addComponent(jLabel7))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(LabelBtrPort, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cbPortatil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(CheckBoxEstuchePort)
+                                        .addGap(0, 0, Short.MAX_VALUE))))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(291, 291, 291)
+                        .addComponent(BtnCrearPort)))
+                .addContainerGap(91, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(LabelIDPort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(LabelFabPort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(cbPortatil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(LabelYrsPort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(LabelPrecioPort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(LabelBtrPort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(LabelModeloPort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CheckBoxEstuchePort))
+                .addGap(51, 51, 51)
+                .addComponent(BtnCrearPort)
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Crear Portatil", jPanel1);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 705, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 381, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Crear Juego", jPanel2);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 705, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 381, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Listar Consolas", jPanel3);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 705, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 381, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Listar Juegos", jPanel4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1150, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 679, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void LabelPrecioPortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LabelPrecioPortActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LabelPrecioPortActionPerformed
+
+    private void CheckBoxEstuchePortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBoxEstuchePortActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CheckBoxEstuchePortActionPerformed
+
+    private void BtnCrearPortMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCrearPortMouseClicked
+        // TODO add your handling code here:
+        
+        CrearPortatil();
+        
+    }//GEN-LAST:event_BtnCrearPortMouseClicked
 
     /**
      * @param args the command line arguments
@@ -75,8 +274,49 @@ public class MainUI extends javax.swing.JFrame {
                 new MainUI().setVisible(true);
             }
         });
+        
+        
+        
+    }
+    private void CrearPortatil(){
+        
+        String ID = LabelIDPort.getText();
+        String fab = LabelFabPort.getText();
+        int años = Integer.parseInt(LabelYrsPort.getText());
+        boolean estuche = CheckBoxEstuchePort.isSelected();
+        double precio = Double.parseDouble(LabelPrecioPort.getText());
+        int bateria = Integer.parseInt(LabelBtrPort.getText());
+        String size = cbPortatil.getItemAt(cbPortatil.getSelectedIndex());
+        String modelo = LabelModeloPort.getText();
+        
+        
+        
+        Portatil nds = new Portatil(size, bateria, estuche,ID, fab, años, precio, modelo);
+        Consolas.add(nds);
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnCrearPort;
+    private javax.swing.JCheckBox CheckBoxEstuchePort;
+    private javax.swing.JTextField LabelBtrPort;
+    private javax.swing.JTextField LabelFabPort;
+    private javax.swing.JTextField LabelIDPort;
+    private javax.swing.JTextField LabelModeloPort;
+    private javax.swing.JTextField LabelPrecioPort;
+    private javax.swing.JTextField LabelYrsPort;
+    private javax.swing.JComboBox<String> cbPortatil;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }
