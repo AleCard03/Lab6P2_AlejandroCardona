@@ -13,6 +13,30 @@ public class Estacionaria extends Consola {
         this.almacenamieneto = almacenamieneto;
         this.conexion = conexion;
     }
+
+    public int getControles() {
+        return controles;
+    }
+
+    public void setControles(int controles) {
+        this.controles = controles;
+    }
+
+    public double getAlmacenamieneto() {
+        return almacenamieneto;
+    }
+
+    public void setAlmacenamieneto(double almacenamieneto) {
+        this.almacenamieneto = almacenamieneto;
+    }
+
+    public String getConexion() {
+        return conexion;
+    }
+
+    public void setConexion(String conexion) {
+        this.conexion = conexion;
+    }
     
     
     
