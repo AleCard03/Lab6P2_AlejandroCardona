@@ -1,13 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package lab6p2_alejandrocardona;
 
-/**
- *
- * @author jets
- */
+import java.util.Date;
+
 public class Juego {
+    
+    private String nombre, descripcion;
+    private Date fechaLan;
+    private double precio;
+    private boolean estado;
+    private boolean rentable;
+    private boolean agregado;
     
 }
