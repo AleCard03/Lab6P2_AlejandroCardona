@@ -3,6 +3,7 @@ package lab6p2_alejandrocardona;
 
 import javax.swing.DefaultComboBoxModel;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JDialog;
@@ -10,6 +11,7 @@ import javax.swing.JOptionPane;
 
 public class MainUI extends javax.swing.JFrame {
     static ArrayList<Consola> Consolas = new ArrayList();
+    static ArrayList<Juego> Juegos = new ArrayList();
 
     /**
      * Creates new form MainUI
@@ -40,6 +42,28 @@ public class MainUI extends javax.swing.JFrame {
         ModConsola = new javax.swing.JMenuItem();
         DelConsola = new javax.swing.JMenuItem();
         DialogJuegos = new javax.swing.JDialog();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        AddJuego = new javax.swing.JButton();
+        DialogAddJuego = new javax.swing.JDialog();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        JuegoDate = new com.toedter.calendar.JDateChooser();
+        JuegoDesc = new javax.swing.JTextField();
+        JuegoNombre = new javax.swing.JTextField();
+        JuegoCantidad = new javax.swing.JTextField();
+        JuegoPrecio = new javax.swing.JTextField();
+        JuegoEstado = new javax.swing.JTextField();
+        JuegoRentable = new javax.swing.JCheckBox();
+        JuegoAgregado = new javax.swing.JCheckBox();
+        Crear = new javax.swing.JButton();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         crearPortatil = new javax.swing.JPanel();
         cbPortatil = new javax.swing.JComboBox<>();
@@ -76,11 +100,9 @@ public class MainUI extends javax.swing.JFrame {
         ConEst = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         StorageEst = new javax.swing.JTextField();
-        crearJuego = new javax.swing.JPanel();
         listarConsolas = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         TableListConsolas = new javax.swing.JTable();
-        listarJuegos = new javax.swing.JPanel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -101,12 +123,22 @@ public class MainUI extends javax.swing.JFrame {
                 VerJuegosMouseClicked(evt);
             }
         });
+        VerJuegos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VerJuegosActionPerformed(evt);
+            }
+        });
         PopUpModConsola.add(VerJuegos);
 
         ModConsola.setText("Modificar Consola");
         ModConsola.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ModConsolaMouseClicked(evt);
+            }
+        });
+        ModConsola.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModConsolaActionPerformed(evt);
             }
         });
         PopUpModConsola.add(ModConsola);
@@ -119,16 +151,142 @@ public class MainUI extends javax.swing.JFrame {
         });
         PopUpModConsola.add(DelConsola);
 
+        jList1.setModel(new DefaultListModel());
+        jScrollPane3.setViewportView(jList1);
+
+        AddJuego.setText("Añadir Juego");
+        AddJuego.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AddJuegoMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout DialogJuegosLayout = new javax.swing.GroupLayout(DialogJuegos.getContentPane());
         DialogJuegos.getContentPane().setLayout(DialogJuegosLayout);
         DialogJuegosLayout.setHorizontalGroup(
             DialogJuegosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(DialogJuegosLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(90, 90, 90)
+                .addComponent(AddJuego)
+                .addContainerGap(89, Short.MAX_VALUE))
         );
         DialogJuegosLayout.setVerticalGroup(
             DialogJuegosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(DialogJuegosLayout.createSequentialGroup()
+                .addGroup(DialogJuegosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DialogJuegosLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(DialogJuegosLayout.createSequentialGroup()
+                        .addGap(191, 191, 191)
+                        .addComponent(AddJuego)))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
+
+        jLabel16.setText("Nombre");
+
+        jLabel17.setText("Descripcion");
+
+        jLabel18.setText("Fecha");
+
+        jLabel19.setText("Precio");
+
+        jLabel20.setText("Estado");
+
+        jLabel21.setText("Rentable");
+
+        jLabel22.setText("Agregado");
+
+        jLabel23.setText("Cantidad Disponible");
+
+        Crear.setText("Crear");
+        Crear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CrearMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout DialogAddJuegoLayout = new javax.swing.GroupLayout(DialogAddJuego.getContentPane());
+        DialogAddJuego.getContentPane().setLayout(DialogAddJuegoLayout);
+        DialogAddJuegoLayout.setHorizontalGroup(
+            DialogAddJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DialogAddJuegoLayout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addGroup(DialogAddJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(DialogAddJuegoLayout.createSequentialGroup()
+                        .addGroup(DialogAddJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel17))
+                        .addGap(120, 120, 120)
+                        .addGroup(DialogAddJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(JuegoNombre)
+                            .addComponent(JuegoDesc)
+                            .addComponent(JuegoDate, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+                            .addComponent(JuegoPrecio)))
+                    .addGroup(DialogAddJuegoLayout.createSequentialGroup()
+                        .addGroup(DialogAddJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel23)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel21)
+                            .addComponent(jLabel20))
+                        .addGap(75, 75, 75)
+                        .addGroup(DialogAddJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JuegoEstado)
+                            .addComponent(JuegoCantidad)
+                            .addGroup(DialogAddJuegoLayout.createSequentialGroup()
+                                .addGroup(DialogAddJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JuegoRentable)
+                                    .addComponent(JuegoAgregado))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addGap(115, 115, 115)
+                .addComponent(Crear)
+                .addContainerGap(142, Short.MAX_VALUE))
+        );
+        DialogAddJuegoLayout.setVerticalGroup(
+            DialogAddJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DialogAddJuegoLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addGroup(DialogAddJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(JuegoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(DialogAddJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(JuegoDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(DialogAddJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel18)
+                    .addComponent(JuegoDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(DialogAddJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(JuegoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Crear))
+                .addGap(17, 17, 17)
+                .addGroup(DialogAddJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(JuegoEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(DialogAddJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(JuegoRentable))
+                .addGap(18, 18, 18)
+                .addGroup(DialogAddJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(JuegoAgregado))
+                .addGap(18, 18, 18)
+                .addGroup(DialogAddJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(JuegoCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(85, Short.MAX_VALUE))
+        );
+
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -369,19 +527,6 @@ public class MainUI extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Crear Estacionaria", crearEstacionaria);
 
-        javax.swing.GroupLayout crearJuegoLayout = new javax.swing.GroupLayout(crearJuego);
-        crearJuego.setLayout(crearJuegoLayout);
-        crearJuegoLayout.setHorizontalGroup(
-            crearJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1008, Short.MAX_VALUE)
-        );
-        crearJuegoLayout.setVerticalGroup(
-            crearJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 464, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Crear Juego", crearJuego);
-
         TableListConsolas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null},
@@ -460,19 +605,6 @@ public class MainUI extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Listar Consolas", listarConsolas);
 
-        javax.swing.GroupLayout listarJuegosLayout = new javax.swing.GroupLayout(listarJuegos);
-        listarJuegos.setLayout(listarJuegosLayout);
-        listarJuegosLayout.setHorizontalGroup(
-            listarJuegosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1008, Short.MAX_VALUE)
-        );
-        listarJuegosLayout.setVerticalGroup(
-            listarJuegosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 464, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Listar Juegos", listarJuegos);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -538,14 +670,19 @@ public class MainUI extends javax.swing.JFrame {
     private void VerJuegosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VerJuegosMouseClicked
         // TODO add your handling code here:
         
-        listarConsolas.add(DialogJuegos);
-        DialogJuegos.show();
+        
         
     }//GEN-LAST:event_VerJuegosMouseClicked
 
     private void ModConsolaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModConsolaMouseClicked
         // TODO add your handling code here:
         
+       
+        
+    }//GEN-LAST:event_ModConsolaMouseClicked
+
+    private void ModConsolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModConsolaActionPerformed
+        // TODO add your handling code here:
         if(TableListConsolas.getSelectedRow()>=0){
             
             if(Consolas.get(TableListConsolas.getSelectedRow()) instanceof Portatil){
@@ -597,8 +734,40 @@ public class MainUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(TableListConsolas, "No ha seleccionado una consola");
             
         }
+    }//GEN-LAST:event_ModConsolaActionPerformed
+
+    private void VerJuegosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerJuegosActionPerformed
+        // TODO add your handling code here:
         
-    }//GEN-LAST:event_ModConsolaMouseClicked
+        DialogJuegos.pack();
+        DialogJuegos.show();
+        
+    }//GEN-LAST:event_VerJuegosActionPerformed
+
+    private void AddJuegoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddJuegoMouseClicked
+        // TODO add your handling code here:
+        
+        DialogAddJuego.pack();
+        DialogAddJuego.show();
+        
+    }//GEN-LAST:event_AddJuegoMouseClicked
+
+    private void CrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearMouseClicked
+        // TODO add your handling code here:
+        
+        String nombre = JuegoNombre.getText();
+        String descripcion = JuegoDesc.getText();
+        Date fecha = JuegoDate.getDate();
+        double precio = Double.parseDouble(JuegoPrecio.getText());
+        String estado = JuegoEstado.getText();
+        boolean rentable = JuegoRentable.isSelected();
+        boolean agregado = JuegoAgregado.isSelected();
+        int cantidad = Integer.parseInt(JuegoCantidad.getText());
+        
+        Juego SMBB = new Juego()
+        Consolas.get(TableListConsolas.getSelectedRow()).getJuegos().add(SMBB);
+        
+    }//GEN-LAST:event_CrearMouseClicked
 
     /**
      * @param args the command line arguments
@@ -716,15 +885,26 @@ public class MainUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddJuego;
     private javax.swing.JButton BtnCrearEst;
     private javax.swing.JButton BtnCrearPort;
     private javax.swing.JCheckBox CheckBoxEstuchePort;
     private javax.swing.JTextField ConEst;
     private javax.swing.JTextField ContrEst;
+    private javax.swing.JButton Crear;
     private javax.swing.JMenuItem DelConsola;
+    private javax.swing.JDialog DialogAddJuego;
     private javax.swing.JDialog DialogJuegos;
     private javax.swing.JTextField FabEst;
     private javax.swing.JTextField IDEst;
+    private javax.swing.JCheckBox JuegoAgregado;
+    private javax.swing.JTextField JuegoCantidad;
+    private com.toedter.calendar.JDateChooser JuegoDate;
+    private javax.swing.JTextField JuegoDesc;
+    private javax.swing.JTextField JuegoEstado;
+    private javax.swing.JTextField JuegoNombre;
+    private javax.swing.JTextField JuegoPrecio;
+    private javax.swing.JCheckBox JuegoRentable;
     private javax.swing.JTextField LabelBtrPort;
     private javax.swing.JTextField LabelFabPort;
     private javax.swing.JTextField LabelIDPort;
@@ -741,8 +921,8 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JTextField YearsEst;
     private javax.swing.JComboBox<String> cbPortatil;
     private javax.swing.JPanel crearEstacionaria;
-    private javax.swing.JPanel crearJuego;
     private javax.swing.JPanel crearPortatil;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -750,7 +930,15 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -758,11 +946,12 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JPanel listarConsolas;
-    private javax.swing.JPanel listarJuegos;
     // End of variables declaration//GEN-END:variables
 }

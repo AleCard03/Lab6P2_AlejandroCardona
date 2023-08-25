@@ -11,5 +11,73 @@ public class Juego {
     private boolean estado;
     private boolean rentable;
     private boolean agregado;
+
+    public Juego(String nombre, String descripcion, Date fechaLan, double precio, boolean estado, boolean rentable, boolean agregado) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.fechaLan = fechaLan;
+        this.precio = precio;
+        this.estado = estado;
+        this.rentable = rentable;
+        this.agregado = agregado;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Date getFechaLan() {
+        return fechaLan;
+    }
+
+    public void setFechaLan(Date fechaLan) {
+        this.fechaLan = fechaLan;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    public boolean isRentable() {
+        return rentable;
+    }
+
+    public void setRentable(boolean rentable) {
+        this.rentable = rentable;
+    }
+
+    public boolean isAgregado() {
+        return agregado;
+    }
+
+    public void setAgregado(boolean agregado) {
+        this.agregado = agregado;
+    }
+    
+    
     
 }
