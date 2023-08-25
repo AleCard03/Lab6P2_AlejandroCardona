@@ -3,6 +3,7 @@ package lab6p2_alejandrocardona;
 
 import javax.swing.DefaultComboBoxModel;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 public class MainUI extends javax.swing.JFrame {
     static ArrayList<Consola> Consolas = new ArrayList();
@@ -29,6 +30,8 @@ public class MainUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         cbPortatil = new javax.swing.JComboBox<>();
@@ -49,9 +52,30 @@ public class MainUI extends javax.swing.JFrame {
         BtnCrearPort = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TableListConsolas = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPane1MouseClicked(evt);
+            }
+        });
 
         cbPortatil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -136,7 +160,7 @@ public class MainUI extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(291, 291, 291)
                         .addComponent(BtnCrearPort)))
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(454, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,7 +192,7 @@ public class MainUI extends javax.swing.JFrame {
                     .addComponent(CheckBoxEstuchePort))
                 .addGap(51, 51, 51)
                 .addComponent(BtnCrearPort)
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Crear Portatil", jPanel1);
@@ -177,24 +201,84 @@ public class MainUI extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 705, Short.MAX_VALUE)
+            .addGap(0, 1068, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 381, Short.MAX_VALUE)
+            .addGap(0, 484, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Crear Juego", jPanel2);
+
+        TableListConsolas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Identificacion", "Fabricante", "Años de Uso", "Precio", "Modelo", "Tamaño", "Bateria", "Estuche", "Cant. de Controles", "Almacenamiento", "Conexion"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(TableListConsolas);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 705, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 963, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(66, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 381, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Listar Consolas", jPanel3);
@@ -203,11 +287,11 @@ public class MainUI extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 705, Short.MAX_VALUE)
+            .addGap(0, 1068, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 381, Short.MAX_VALUE)
+            .addGap(0, 484, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Listar Juegos", jPanel4);
@@ -241,6 +325,11 @@ public class MainUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_BtnCrearPortMouseClicked
 
+    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
+        // TODO add your handling code here:
+        listConsolas();
+    }//GEN-LAST:event_jTabbedPane1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -273,6 +362,7 @@ public class MainUI extends javax.swing.JFrame {
             public void run() {
                 new MainUI().setVisible(true);
             }
+            
         });
         
         
@@ -295,6 +385,52 @@ public class MainUI extends javax.swing.JFrame {
         Consolas.add(nds);
         
     }
+    private void listConsolas(){
+        int cont = 0;
+        
+        for (Consola consoles : Consolas) {
+            
+            if(consoles instanceof Portatil){
+                
+                DefaultTableModel dt = (DefaultTableModel)TableListConsolas.getModel();
+                
+                dt.setValueAt(consoles.getID(), cont, 0);
+                dt.setValueAt(consoles.getFabricante(), cont, 1);
+                dt.setValueAt(consoles.getYears(), cont, 2);
+                dt.setValueAt(consoles.getPrecio(), cont, 3);
+                dt.setValueAt(consoles.getModelo(), cont, 4);
+                dt.setValueAt((((Portatil) consoles).getSize()), cont, 5);
+                dt.setValueAt((((Portatil) consoles).getBateria()), cont, 6);
+                dt.setValueAt((((Portatil) consoles).isEstuche()), cont, 7);
+                dt.setValueAt(0, cont, 8);
+                dt.setValueAt(0, cont, 9);
+                dt.setValueAt("", cont, 10);
+                TableListConsolas.setModel(dt);
+                
+                
+            }
+            else{
+                
+                DefaultTableModel dt = (DefaultTableModel)TableListConsolas.getModel();
+                
+                dt.setValueAt(consoles.getID(), cont, 0);
+                dt.setValueAt(consoles.getFabricante(), cont, 1);
+                dt.setValueAt(consoles.getYears(), cont, 2);
+                dt.setValueAt(consoles.getPrecio(), cont, 3);
+                dt.setValueAt(consoles.getModelo(), cont, 4);
+                dt.setValueAt("", cont, 5);
+                dt.setValueAt(0, cont, 6);
+                dt.setValueAt(null, cont, 7);
+                dt.setValueAt(0, cont, 8);
+                dt.setValueAt(0, cont, 9);
+                dt.setValueAt("", cont, 10);
+                TableListConsolas.setModel(dt);
+                
+            }
+            cont++;
+        }
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCrearPort;
@@ -305,6 +441,7 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JTextField LabelModeloPort;
     private javax.swing.JTextField LabelPrecioPort;
     private javax.swing.JTextField LabelYrsPort;
+    private javax.swing.JTable TableListConsolas;
     private javax.swing.JComboBox<String> cbPortatil;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -317,6 +454,9 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

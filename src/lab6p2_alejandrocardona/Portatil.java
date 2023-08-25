@@ -15,6 +15,30 @@ public class Portatil extends Consola {
         this.bateria = bateria;
         this.estuche = estuche;
     }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public int getBateria() {
+        return bateria;
+    }
+
+    public void setBateria(int bateria) {
+        this.bateria = bateria;
+    }
+
+    public boolean isEstuche() {
+        return estuche;
+    }
+
+    public void setEstuche(boolean estuche) {
+        this.estuche = estuche;
+    }
     
     
     
