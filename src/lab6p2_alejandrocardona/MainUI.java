@@ -764,8 +764,8 @@ public class MainUI extends javax.swing.JFrame {
         boolean agregado = JuegoAgregado.isSelected();
         int cantidad = Integer.parseInt(JuegoCantidad.getText());
         
-        Juego SMBB = new Juego()
-        Consolas.get(TableListConsolas.getSelectedRow()).getJuegos().add(SMBB);
+        Juego SSBB = new Juego(nombre, descripcion, fecha, precio, estado, rentable, agregado);
+        Consolas.get(TableListConsolas.getSelectedRow()).getJuegos().add(SSBB);
         
     }//GEN-LAST:event_CrearMouseClicked
 

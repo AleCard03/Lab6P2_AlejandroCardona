@@ -8,11 +8,11 @@ public class Juego {
     private String nombre, descripcion;
     private Date fechaLan;
     private double precio;
-    private boolean estado;
+    private String estado;
     private boolean rentable;
     private boolean agregado;
 
-    public Juego(String nombre, String descripcion, Date fechaLan, double precio, boolean estado, boolean rentable, boolean agregado) {
+    public Juego(String nombre, String descripcion, Date fechaLan, double precio, String estado, boolean rentable, boolean agregado) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fechaLan = fechaLan;
@@ -54,11 +54,11 @@ public class Juego {
         this.precio = precio;
     }
 
-    public boolean isEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 
