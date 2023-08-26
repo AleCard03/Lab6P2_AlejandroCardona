@@ -77,6 +77,11 @@ public class Juego {
     public void setAgregado(boolean agregado) {
         this.agregado = agregado;
     }
+
+    @Override
+    public String toString() {
+        return nombre + "   " + descripcion + "    " + precio;
+    }
     
     
     

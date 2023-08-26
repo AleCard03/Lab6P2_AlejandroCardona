@@ -43,7 +43,7 @@ public class MainUI extends javax.swing.JFrame {
         DelConsola = new javax.swing.JMenuItem();
         DialogJuegos = new javax.swing.JDialog();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        ListadeJuegos = new javax.swing.JList<>();
         AddJuego = new javax.swing.JButton();
         DialogAddJuego = new javax.swing.JDialog();
         jLabel16 = new javax.swing.JLabel();
@@ -149,10 +149,15 @@ public class MainUI extends javax.swing.JFrame {
                 DelConsolaMouseClicked(evt);
             }
         });
+        DelConsola.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DelConsolaActionPerformed(evt);
+            }
+        });
         PopUpModConsola.add(DelConsola);
 
-        jList1.setModel(new DefaultListModel());
-        jScrollPane3.setViewportView(jList1);
+        ListadeJuegos.setModel(new DefaultListModel());
+        jScrollPane3.setViewportView(ListadeJuegos);
 
         AddJuego.setText("Añadir Juego");
         AddJuego.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -632,6 +637,16 @@ public class MainUI extends javax.swing.JFrame {
         
         CrearPortatil();
         
+        
+        LabelIDPort.setText("");
+        LabelFabPort.setText("");
+        LabelYrsPort.setText("");
+        LabelPrecioPort.setText("");
+        LabelBtrPort.setText("");
+        LabelModeloPort.setText("");
+        
+        JOptionPane.showMessageDialog(null, "Se ha ingresado de manera exitosa");
+        
     }//GEN-LAST:event_BtnCrearPortMouseClicked
 
     private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
@@ -646,6 +661,19 @@ public class MainUI extends javax.swing.JFrame {
     private void BtnCrearEstMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCrearEstMouseClicked
         // TODO add your handling code here:
         crearEstacionaria();
+        
+        
+        IDEst.setText("");
+        FabEst.setText("");
+        YearsEst.setText("");
+        PrecioEst.setText("");
+        ModeloEst.setText("");
+        ContrEst.setText("");
+        StorageEst.setText("");
+        ConEst.setText("");
+        
+        JOptionPane.showMessageDialog(null, "Se ha ingresado de manera exitosa");
+        
         
     }//GEN-LAST:event_BtnCrearEstMouseClicked
 
@@ -742,6 +770,25 @@ public class MainUI extends javax.swing.JFrame {
         DialogJuegos.pack();
         DialogJuegos.show();
         
+        if(TableListConsolas.getSelectedRow()>= 0){
+            
+            ArrayList<Juego> temp = Consolas.get(TableListConsolas.getSelectedRow()).getJuegos();
+                
+            DefaultListModel dl = (DefaultListModel) ListadeJuegos.getModel();
+                
+            for (Juego juego : temp) {
+                
+                dl.addElement(temp);
+                
+            }
+            
+            ListadeJuegos.setModel(dl);
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "No ha seleccionado una consola");
+        }
+        
     }//GEN-LAST:event_VerJuegosActionPerformed
 
     private void AddJuegoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddJuegoMouseClicked
@@ -768,6 +815,22 @@ public class MainUI extends javax.swing.JFrame {
         Consolas.get(TableListConsolas.getSelectedRow()).getJuegos().add(SSBB);
         
     }//GEN-LAST:event_CrearMouseClicked
+
+    private void DelConsolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DelConsolaActionPerformed
+        // TODO add your handling code here:
+        
+        if(TableListConsolas.getSelectedRow() >= 0){
+            
+            Consolas.remove(TableListConsolas.getSelectedRow());
+            
+        }
+        else{
+            
+            JOptionPane.showMessageDialog(null, "No ha seleccionado una consola");
+            
+        }
+        
+    }//GEN-LAST:event_DelConsolaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -911,6 +974,7 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JTextField LabelModeloPort;
     private javax.swing.JTextField LabelPrecioPort;
     private javax.swing.JTextField LabelYrsPort;
+    private javax.swing.JList<String> ListadeJuegos;
     private javax.swing.JMenuItem ModConsola;
     private javax.swing.JTextField ModeloEst;
     private javax.swing.JPopupMenu PopUpModConsola;
@@ -946,7 +1010,6 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
